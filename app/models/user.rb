@@ -4,8 +4,10 @@ class User < ApplicationRecord
   has_many :attendances
   has_many :events, :through => :attendances
 
-  has_many :event_as_owner, :through => :role { where(:role => 'owner') }, :source => :attendances
-  has_many :event_as_assistent, :through => :role { where(:role => 'assistent') }, :source => :attendances
+  has_many :owner_relationships, ->{ where(role: 'owner') }, class_name: 'Attendance'
+  has_many :assistent_relationships, ->{ where(role: 'assistent') }, class_name: 'Attendance'
+  has_many :events_as_owner, through: :owner_relationships, source: :event
+  has_many :events_as_assistent, through: :assistent_relationships, source: :event
 
 
   def self.digest(string)
