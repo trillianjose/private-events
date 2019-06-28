@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  validates :title, :schedule, :description, presence: true
 
   has_one :owner_relationship, ->{ where(role: 'owner') }, class_name: 'Attendance'
   has_one :owner, through: :owner_relationship, source: :user
