@@ -1,14 +1,11 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
-  has_many :attendances
-  has_many :events, :through => :attendances
-
   has_many :owner_relationships, ->{ where(role: 'owner') }, class_name: 'Attendance'
-  has_many :assistent_relationships, ->{ where(role: 'assistent') }, class_name: 'Attendance'
   has_many :events_as_owner, through: :owner_relationships, source: :event
-  has_many :events_as_assistent, through: :assistent_relationships, source: :event
 
+  has_many :assistent_relationships, ->{ where(role: 'assistent') }, class_name: 'Attendance'
+  has_many :events_as_assistent, through: :assistent_relationships, source: :event
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -34,5 +31,4 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
-
 end
