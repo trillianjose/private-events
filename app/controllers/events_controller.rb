@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      Attendance.create(user_id: params[:id],event_id: @event.id,role: "owner")
+      Attendance.create(user_id: session[:user_id],event_id: @event.id,role: "owner")
       flash[:info] = "Successfully created an event"
       redirect_to root_url
     else
