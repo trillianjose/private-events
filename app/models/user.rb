@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
+  has_many :attendances
+  has_many :events_as_owner, -> { where(role: 'owner')}, through: :attendances, source: 'Event'
+  has_many :events_as_assistent, -> { where(role: 'assistent')}, through: :attendances
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
