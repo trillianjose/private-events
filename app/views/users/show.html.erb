@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="col-md-8">
+  <h3>Events (<%= @user.count %>)</h3>
+  <ol class="microposts">
+    <% @user.each do |event| %>
+      <h1><%= event.title %></h1>
+      <p><%= event.description %></p>
+    <% end %>
+  </ol>
+</div>
