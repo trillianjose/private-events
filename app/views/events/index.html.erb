@@ -1,6 +1,6 @@
-<div class="position-sticky">
-  <%= link_to "Create Event +", new_event_path, class: "btn btn-primary btn-lg" %>
-</div>
+<% if logged_in? %>
+  <%= link_to '<button type="button" class="btn btn-primary btn-lg">Create Event +</button>'.html_safe, new_event_path %>
+<% end %>
 
 <h1>All events</h1>
 
