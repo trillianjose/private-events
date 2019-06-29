@@ -1,0 +1,31 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= image_tag("favicon.ico.png", class: "img-responsive", id: "logo") %>
+    <nav class="nav-top">
+      <ul class="nav navbar-nav navbar-right">
+        <% if !logged_in? %>
+          <li><%= link_to "SignUp", signup_path, class: "nav-item" %></li>
+        <% end %>
+        <% if logged_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle nav-item" data-toggle="dropdown">
+              <%= current_user.name%> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Profile", current_user %>
+              </li>
+              <li>
+                <%= link_to "Log out", logout_path, method: :delete %>
+              </li>
+
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", login_path, class: "nav-item" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

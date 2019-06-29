@@ -5,7 +5,11 @@
     <li><%= event.title %></li>
     <li><%= event.schedule %></li>
     <li><%= event.description %></li>
-    <% if event.owner != current_user && !current_user.assistent?(event) %>
+    <% if logged_in? %>
+      <% if event.owner != current_user && !current_user.assistent?(event) %>
+        <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+      <% end %>
+    <% else %>
       <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
     <% end %>
     <br><br>

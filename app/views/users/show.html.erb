@@ -2,7 +2,7 @@
   <h3>Events (<%= @user.count %>)</h3>
   <ol class="microposts">
     <% @user.each do |event| %>
-      <h1><%= event.title %></h1>
+      <h3><%= event.title %></h3>
       <p><%= event.description %></p>
     <% end %>
   </ol>
