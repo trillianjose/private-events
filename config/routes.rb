@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources 'sessions', only: [:new]
   resources 'events',   only: [:index, :new, :create] do
     post :checkin
+    get  :assistents
   end
 end

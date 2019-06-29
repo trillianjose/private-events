@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= image_tag("favicon.ico.png", class: "img-responsive", id: "logo") %>
+    <%= link_to image_tag("favicon.ico.png", class: "img-responsive", id: "logo"), root_path %>
     <nav class="nav-top">
       <ul class="nav navbar-nav navbar-right">
         <% if !logged_in? %>

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.last.events_as_owner
+    @user = current_user.events_as_owner.order(schedule: :desc)
   end
 
   private
