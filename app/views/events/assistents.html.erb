@@ -1,3 +1,11 @@
-<% @assistents.each do |assistent| %>
-  <p><%= assistent.name  %></p>
-<% end %>
+<br>
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="box">
+      <h1 class="title is-1 has-text-centered">Assistents Name</h1>
+      <% @assistents.each do |assistent| %>
+        <p class="title is-5 has-text-centered"><%= assistent.name  %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

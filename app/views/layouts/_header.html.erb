@@ -1,6 +1,6 @@
 <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" width="112" height="28">
+    <a class="navbar-item">
       <%= link_to image_tag("favicon.ico.png", class: "img-responsive", id: "logo"), root_path %>
     </a>
   </div>
@@ -8,7 +8,7 @@
   <div class="navbar-end">
     <div class="navbar-item">
       <% if !logged_in? %>
-        <div class="buttons">
+        <div class="buttons is-marginless">
           <strong class="button is-primary"><%= link_to "SignUp", signup_path %></strong>
         </div>
       <% end %>
@@ -36,7 +36,7 @@
           </div>
         </div>
       <% else %>
-        <div class="buttons">
+        <div class="buttons is-marginless">
           <strong class="button is-light"><%= link_to "Log in", login_path %></strong>
         </div>
       <% end %>

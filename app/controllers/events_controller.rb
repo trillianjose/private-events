@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     attendance = @event.assistent_relationships.build(user_id: current_user.id, role: 'assistent')
 
     if attendance.save
-      flash[:info] = 'Check-in Successfully'
+      flash[:success] = 'Check-in Successfully'
       redirect_to :root
     else
       flash[:danger] = 'Error in Check-in'

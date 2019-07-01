@@ -5,13 +5,15 @@
     <%= render 'layouts/rails_default' %>
   </head>
 
-  <body>
+  <body class="Site">
     <%= render 'layouts/header' %>
-    <div class="container">
+
+    <div class="Site-content">
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
       <%= yield %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
