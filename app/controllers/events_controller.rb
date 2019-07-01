@@ -3,7 +3,8 @@ class EventsController < ApplicationController
   before_action :find_event, only: [:checkin, :assistents]
 
   def index
-    @events = Event.all.order(:schedule)
+    @eventspast = Event.past
+    @eventsupcoming = Event.upcoming
   end
 
   def new
@@ -47,4 +48,5 @@ class EventsController < ApplicationController
   def find_event
     @event = Event.find(params[:event_id])
   end
+
 end

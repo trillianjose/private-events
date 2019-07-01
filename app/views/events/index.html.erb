@@ -4,18 +4,42 @@
 
 <h1>All events</h1>
 
-<ul>
-  <% @events.each do |event| %>
-    <li><%= event.title %></li>
-    <li><%= event.schedule %></li>
-    <li><%= event.description %></li>
-    <% if logged_in? %>
-      <% if event.owner != current_user && !current_user.assistent?(event) %>
-        <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
-      <% end %>
-    <% else %>
-      <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
-    <% end %>
-    <br><br>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <ul>
+        <% @eventsupcoming.each do |event| %>
+          <li><%= event.title %></li>
+          <li><%= event.schedule %></li>
+          <li><%= event.description %></li>
+          <% if logged_in? %>
+            <% if event.owner != current_user && !current_user.assistent?(event) %>
+              <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+            <% end %>
+          <% else %>
+            <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+          <% end %>
+          <br><br>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-4">
+      <ul>
+        <% @eventspast.each do |event| %>
+          <li><%= event.title %></li>
+          <li><%= event.schedule %></li>
+          <li><%= event.description %></li>
+          <% if logged_in? %>
+            <% if event.owner != current_user && !current_user.assistent?(event) %>
+              <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+            <% end %>
+          <% else %>
+            <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+          <% end %>
+          <br><br>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

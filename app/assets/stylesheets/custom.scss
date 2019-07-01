@@ -1,4 +1,4 @@
-@import "bootstrap-sprockets";
+// @import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* universal */
@@ -11,10 +11,6 @@ $gray-light: #7f8fa6;
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
-}
-
-body {
-  padding-top: 100px;
 }
 
 section {
