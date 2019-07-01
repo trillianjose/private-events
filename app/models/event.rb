@@ -18,7 +18,7 @@ class Event < ApplicationRecord
   private
 
   def creation_date_cannot_past_date
-    if schedule < Date.today
+    if schedule.present? && schedule < Date.today
       errors.add(:schedule, "can't be in the past")
     end
   end

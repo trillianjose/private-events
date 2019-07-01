@@ -11,7 +11,7 @@
     <div class="box">
       <h3 class="title is-3">Past Events</h3>
       <ul>
-        <% @eventsupcoming.each do |event| %>
+        <% @eventspast.each do |event| %>
           <li><%= event.title %></li>
           <li><%= event.schedule.to_date %></li>
           <li><%= event.description %></li>
@@ -24,7 +24,7 @@
     <div class="box">
       <h3 class="title is-3">Future Events</h3>
       <ul>
-        <% @eventspast.each do |event| %>
+        <% @eventsupcoming.each do |event| %>
           <li><%= event.title %></li>
           <li><%= event.schedule.to_date%></li>
           <li><%= event.description %></li>

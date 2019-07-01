@@ -7,11 +7,9 @@
 
   <body class="Site">
     <%= render 'layouts/header' %>
+    <%= render partial: "partials/flash_messages", flash: flash %>
 
     <div class="Site-content">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
       <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
