@@ -1,56 +1,45 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark"">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" width="112" height="28">
+      <%= link_to image_tag("favicon.ico.png", class: "img-responsive", id: "logo"), root_path %>
+    </a>
+  </div>
+  <hr class="navbar-divider">
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <% if !logged_in? %>
+        <div class="buttons">
+          <strong class="button is-primary"><%= link_to "SignUp", signup_path %></strong>
         </div>
-      </li>
-    </ul>
+      <% end %>
+      <% if logged_in? %>
+        <div class="dropdown is-hoverable">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+              <span><%= current_user.name%></span>
+              <hr class="dropdown-divider">
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+            <div class="dropdown-content">
+              <div class="dropdown-item">
+                <%= link_to "Profile", current_user %>
+              </div>
+              <hr class="dropdown-divider">
+              <div class="dropdown-item">
+                <%= link_to "Log out", logout_path, method: :delete %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="buttons">
+          <strong class="button is-light"><%= link_to "Log in", login_path %></strong>
+        </div>
+      <% end %>
+    </div>
   </div>
 </nav>
-<!-- <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to image_tag("favicon.ico.png", class: "img-responsive", id: "logo"), root_path %>
-    <nav class="nav-top">
-      <ul class="nav navbar-nav navbar-right">
-        <% if !logged_in? %>
-          <li><%= link_to "SignUp", signup_path, class: "nav-item" %></li>
-        <% end %>
-        <% if logged_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle nav-item" data-toggle="dropdown">
-              <%= current_user.name%> <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Profile", current_user %>
-              </li>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-              </li>
-
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path, class: "nav-item" %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header> -->

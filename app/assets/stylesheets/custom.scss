@@ -1,7 +1,7 @@
-// @import "bootstrap-sprockets";
-@import "bootstrap";
+@import "bulma";
 
 /* universal */
+
 $gray-medium-light: #eaeaea;
 $gray: #555;
 $gray-darker: #222;
@@ -13,58 +13,12 @@ $gray-light: #7f8fa6;
   box-sizing:         border-box;
 }
 
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
-}
-  /* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
 /* header */
+
 #logo {
   float: left;
   margin-right: 10px;
   width: 150px;
   height: 65px;
   padding-top: 9px;
-}
-.nav-top{
-  margin-top: 8px;
-}
-.nav-item{
-  font-size: 20px;
-  margin: auto 0;
 }
