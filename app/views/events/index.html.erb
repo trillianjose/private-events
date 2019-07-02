@@ -30,10 +30,10 @@
           <li><%= event.description %></li>
           <% if logged_in? %>
             <% if event.owner != current_user && !current_user.assistent?(event) %>
-              <%= link_to 'Check-in!', attendance_index_path(event_id: event.id) %>
+              <%= link_to 'Check-in!', event_attendances_path(event_id: event.id), method: :post %>
             <% end %>
           <% else %>
-            <%= link_to 'Check-in!', attendance_index_path(event_id: event.id) %>
+            <%= link_to 'Check-in!', event_attendances_path(event_id: event.id), method: :post %>
           <% end %>
           <br><br>
         <% end %>

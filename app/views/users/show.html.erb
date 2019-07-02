@@ -7,7 +7,7 @@
           <li><%= event.title %></li>
           <li><%= event.schedule.to_date %></li>
           <li><%= event.description %></li>
-          <p>Number of Participants <%= link_to event.assistents.count, event_assistents_url(event_id: event.id)  %></p>
+          <p>Number of Participants <%= link_to event.assistents.count, event_attendances_path(event_id: event.id)  %></p>
           <br><br>
         <% end %>
       </ul>
@@ -19,7 +19,7 @@
           <li><%= event.title %></li>
           <li><%= event.schedule.to_date %></li>
           <li><%= event.description %></li>
-          <p>Number of Participants <%= link_to event.assistents.count, event_assistents_url(event_id: event.id)  %></p>
+          <p>Number of Participants <%= link_to event.assistents.count, event_attendances_path(event_id: event.id)  %></p>
           <br><br>
         <% end %>
       </ul>
@@ -35,10 +35,10 @@
           <li><%= event.description %></li>
           <% if logged_in? %>
             <% if event.owner != current_user && !current_user.assistent?(event) %>
-              <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+              <%= link_to 'Check-in!', event_attendances_path(event_id: event.id), method: :post %>
             <% end %>
           <% else %>
-            <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+            <%= link_to 'Check-in!', event_attendances_path(event_id: event.id), method: :post %>
           <% end %>
           <br><br>
         <% end %>
@@ -53,10 +53,10 @@
           <li><%= event.description %></li>
           <% if logged_in? %>
             <% if event.owner != current_user && !current_user.assistent?(event) %>
-              <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+              <%= link_to 'Check-in!', event_attendances_path(event_id: event.id), method: :post %>
             <% end %>
           <% else %>
-            <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+            <%= link_to 'Check-in!', event_attendances_path(event_id: event.id), method: :post %>
           <% end %>
           <br><br>
         <% end %>
