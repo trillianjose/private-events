@@ -1,9 +1,21 @@
 <div class="columns">
   <div class="column has-text-centered">
     <div class="box">
-      <h3 class="title is-3">Owned Events (<%= @userowner.count %>)</h3>
+      <h3 class="title is-3">Owned Events (Upcoming Events)(<%= @userownerfuture.count %>)</h3>
       <ul>
-        <% @userowner.each do |event| %>
+        <% @userownerfuture.each do |event| %>
+          <li><%= event.title %></li>
+          <li><%= event.schedule.to_date %></li>
+          <li><%= event.description %></li>
+          <p>Number of Participants <%= link_to event.assistents.count, event_assistents_url(event_id: event.id)  %></p>
+          <br><br>
+        <% end %>
+      </ul>
+      <br><br>
+      <hr>
+      <h3 class="title is-3">Owned Events (Past Events)(<%= @userownerpast.count %>)</h3>
+      <ul>
+        <% @userownerpast.each do |event| %>
           <li><%= event.title %></li>
           <li><%= event.schedule.to_date %></li>
           <li><%= event.description %></li>
@@ -32,6 +44,7 @@
         <% end %>
       </ul>
       <br><br>
+      <hr>
       <h3 class="title is-3">As Participant(Past Events) (<%= @userassistentpast.count %>)</h3>
       <ul>
         <% @userassistentpast.each do |event| %>
