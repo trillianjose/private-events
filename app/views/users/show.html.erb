@@ -15,9 +15,26 @@
   </div>
   <div class="column has-text-centered">
     <div class="box">
-      <h3 class="title is-3">As Participant (<%= @userassistent.count %>)</h3>
+      <h3 class="title is-3">As Participant(Upcoming Events) (<%= @userassistentfuture.count %>)</h3>
       <ul>
-        <% @userassistent.each do |event| %>
+        <% @userassistentfuture.each do |event| %>
+          <li><%= event.title %></li>
+          <li><%= event.schedule.to_date%></li>
+          <li><%= event.description %></li>
+          <% if logged_in? %>
+            <% if event.owner != current_user && !current_user.assistent?(event) %>
+              <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+            <% end %>
+          <% else %>
+            <%= link_to 'Check-in!', event_checkin_url(event_id: event.id), method: :post %>
+          <% end %>
+          <br><br>
+        <% end %>
+      </ul>
+      <br><br>
+      <h3 class="title is-3">As Participant(Past Events) (<%= @userassistentpast.count %>)</h3>
+      <ul>
+        <% @userassistentpast.each do |event| %>
           <li><%= event.title %></li>
           <li><%= event.schedule.to_date%></li>
           <li><%= event.description %></li>

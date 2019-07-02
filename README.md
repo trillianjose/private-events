@@ -1,25 +1,21 @@
-# README
+# Private Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A project that allows user to create events. A user can enroll in a event and can see the number of participants. 
 
-Things you may want to cover:
+## Tools
 
-* Ruby version
+* Ruby
+* Ruby on Rails
 
-* System dependencies
+## Contributors
 
-* Configuration
+* [Shakhawat Hossain](https://github.com/shshamim63)
+* [Trillanjan Jose](https://github.com/trillianjose)
 
-* Database creation
+## Instructions
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# private-events
+1. `Git clone this repository.`
+2. `git checkout dev`
+3. `bundle install`
+4. `rails db:migrate`
+5. `rails server`

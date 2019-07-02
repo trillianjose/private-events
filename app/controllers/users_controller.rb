@@ -16,7 +16,8 @@ class UsersController < ApplicationController
 
   def show
     @userowner = current_user.events_as_owner.order(schedule: :desc)
-    @userassistent = current_user.events_as_assistent.order(schedule: :desc)
+    @userassistentpast = current_user.events_as_assistent.order(schedule: :desc).past
+    @userassistentfuture = current_user.events_as_assistent.order(schedule: :desc).upcoming
   end
 
   private
