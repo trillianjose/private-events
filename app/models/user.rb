@@ -6,10 +6,10 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
 
-  has_many :owner_relationships, ->{ where(role: 'owner') }, class_name: 'Attendance'
+  has_many :owner_relationships, -> { where(role: 'owner') }, class_name: 'Attendance'
   has_many :events_as_owner, through: :owner_relationships, source: :event
 
-  has_many :assistent_relationships, ->{ where(role: 'assistent') }, class_name: 'Attendance'
+  has_many :assistent_relationships, -> { where(role: 'assistent') }, class_name: 'Attendance'
   has_many :events_as_assistent, through: :assistent_relationships, source: :event
 
   before_save :downcase_email
