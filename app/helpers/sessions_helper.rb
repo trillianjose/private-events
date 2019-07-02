@@ -4,10 +4,6 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
-  def log_in_as(user)
-    session[:user_id] = user.id
-  end
-
   def remember(user)
     user.remember
     cookies.permanent.signed[:user_id] = user.id
