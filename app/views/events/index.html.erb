@@ -28,11 +28,7 @@
           <li><%= event.title %></li>
           <li><%= event.schedule.to_date%></li>
           <li><%= event.description %></li>
-          <% if logged_in? %>
-            <% if event.owner != current_user && !current_user.assistent?(event) %>
-              <%= link_to 'Check-in!', event_attendances_path(event_id: event.id), method: :post %>
-            <% end %>
-          <% else %>
+          <% if event.owner != current_user && !current_user.assistent?(event) %>
             <%= link_to 'Check-in!', event_attendances_path(event_id: event.id), method: :post %>
           <% end %>
           <br><br>
