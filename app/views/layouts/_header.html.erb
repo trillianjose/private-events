@@ -7,11 +7,6 @@
   <hr class="navbar-divider">
   <div class="navbar-end">
     <div class="navbar-item">
-      <% if !logged_in? %>
-        <div class="buttons is-marginless">
-          <strong class="button is-primary"><%= link_to "SignUp", signup_path %></strong>
-        </div>
-      <% end %>
       <% if logged_in? %>
         <div class="dropdown is-hoverable">
           <div class="dropdown-trigger">
@@ -36,6 +31,9 @@
           </div>
         </div>
       <% else %>
+        <div class="buttons is-marginless">
+          <strong class="button is-primary"><%= link_to "SignUp", signup_path %></strong>
+        </div>
         <div class="buttons is-marginless">
           <strong class="button is-light"><%= link_to "Log in", login_path %></strong>
         </div>
