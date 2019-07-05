@@ -1,0 +1,15 @@
+<%= form_for(:session, url: login_path) do |f| %>
+  <div class="field">
+    <%= f.label :email, class: "label" %>
+    <%= f.email_field :email, class: "input", placeholder: "e.g. alexsmith@gmail.com" %>
+  </div>
+  <%= f.label :remember_me, class: "checkbox inline" do %>
+    <%= f.check_box :remember_me %>
+    <span>Remember me on this computer</span>
+  <% end %>
+  <br>
+  <br>
+  <div class="has-text-centered">
+    <%= f.submit yield(:button_text), class: "button is-primary is-rounded" %>
+  </div>
+<% end %>

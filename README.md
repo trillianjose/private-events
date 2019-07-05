@@ -1,25 +1,24 @@
-# README
+# Private Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app allow you to create, and participate on any event that other users create,
+allow you also to see who is participating on your events, the opportunity to
+let all users and participant the opportunity to see the date and also your 
+previous events with just a click. Use and enjoy it.
 
-Things you may want to cover:
+## Tools
 
-* Ruby version
+* Ruby
+* Ruby on Rails
 
-* System dependencies
+## Contributors
 
-* Configuration
+* [Shakhawat Hossain](https://github.com/shshamim63)
+* [Trillanjan Jose](https://github.com/trillianjose)
 
-* Database creation
+## Instructions
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# private-events
+1. `Git clone this repository.`
+2. `git checkout dev`
+3. `bundle install`
+4. `rails db:migrate`
+5. `rails server`
